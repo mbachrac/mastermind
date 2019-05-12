@@ -1,7 +1,18 @@
+import java.util.Arrays;
+
 public class Controller {
 
     public static void main(String []args){
         Service service=new Service();
-        service.playGame();//do this in a loop asking if they want to play a few rounds
+        UserClass user=new UserClass();
+        Boolean again=false;
+        do {
+            service.playGame();//do this in a loop asking if they want to play a few rounds
+            user.sendMessage("Do you want to play again?");
+            user.sendMessage("Enter 'Y' if you do and 'N' if you don't.");
+            if(user.readUserString(1, Arrays.asList('y','n')).equals("y")){
+                again=true;
+            }
+        }while (again);
     }
 }

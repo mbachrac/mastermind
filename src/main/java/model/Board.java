@@ -12,27 +12,32 @@ public class Board {
     private List<Row> gameBoard=new ArrayList<>();
     @Getter
     @Setter
-    private char[] key;
-    @Getter
-    @Setter
+    private List<Character> key;
+
     private char[] feedback;
     public char[] guess;
+    @Getter
+    @Setter
     private Integer size=0;
 
-    public void setKey(String code){
-        key=code.toCharArray();
-    }
-    public void setKey(char[] code){
+    //public void setKey(String code){
+        //key=code.toCharArray();
+    //}
+    public void setKey(List<Character> code){
         key=code;
+        System.out.println(key);
     }
-    public char[] getKey(){
+    public List<Character> getKey(){
         return key;
     }
 
-    public List<Row> fillBoard(char[] guess,List<Character> feedback){
+    public List<Row> fillBoard(List<Character> guess,List<Character> feedback){
         gameBoard.add(new Row(guess,feedback));
         size++;
         return gameBoard;
+    }
+    public void clearBoard(){
+        gameBoard.clear();
     }
 
     //getters and setters to its state

@@ -11,9 +11,9 @@ public class Row {
     @Setter
     private List<Character> pegs=new ArrayList<>();
 
-    public Row (char[] guess,List<Character> feedback){
-        for (int i=0; i<guess.length;i++) {
-            pegs.add(guess[i]);
+    public Row (List<Character> guess,List<Character> feedback){
+        for (int i=0; i<guess.size();i++) {
+            pegs.add(guess.get(i));
         }
 //        for (char peg:feedback) {
 //            pegs.add(peg);
