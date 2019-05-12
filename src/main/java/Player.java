@@ -1,8 +1,11 @@
 import lombok.Getter;
 import lombok.Setter;
+import model.Board;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Player {
-    public UserClass user=new UserClass();
     @Getter
     @Setter
     private String name;
@@ -12,9 +15,12 @@ public class Player {
     }
     @Getter
     @Setter
-    private Integer score;
-    public Integer setScore(Integer score){
-        return this.score=score;
+    private Integer score=0;
+    public Integer getScore(){
+        return this.score;
+    }
+    public void setScore(Integer score){
+        this.score=score;
     }
     @Getter
     @Setter
@@ -22,8 +28,18 @@ public class Player {
     public Player (Integer id){
         setId(id);
     }
-    public Integer calculateScore(Player player,Integer boardSize){
-        user.sendMessage("Yay, " + player.getName() + " you got it!!");//TODO:tally up the points
-        return player.getScore()+12-boardSize;
+
+    public Integer findScore(Player player1, Player player2, List<Character> feedback, Integer now, Board board){
+        if(feedback.equals(Arrays.asList(' ','W', 'W', 'W', 'W'))) {
+            this.setScore(this.getScore()+(13-(board.getSize())));
+        }
+        else {
+            if (now == 1) {
+                player2.setScore(player1.getScore()+1);
+            } else {
+                player1.setScore(player2.getScore()+1);
+            }
+        }
+        return this.getScore();
     }
 }

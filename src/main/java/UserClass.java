@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class UserClass {
     private Scanner keyboard=new Scanner(System.in);
@@ -35,7 +34,6 @@ public class UserClass {
                     list.add(c);
                 }
             }
-            // = untangleResponse(key).stream().filter(choices::contains);
             if (list.size() != length) {
                 throw new Exception();
             }
@@ -44,26 +42,9 @@ public class UserClass {
             key=readUserString(length,choices);
             return key;
         }
-
-//        try {
-//            checkCharacters(length,key,choices);
-//        }catch (Exception e){
-//            sendMessage("Your answer was not one of the choices.");
-//            sendMessage("Please enter a valid response.");
-//        }
         return key;
     }
 
-//    private void checkCharacters(Integer length, String key,List<Character>choices) {
-//        try{
-//            Stream<Character> stream= untangleResponse(key).stream().filter(c->untangleResponse(key).contains(c));
-//            if(stream.count()==length){
-//                throw new Exception();
-//            }
-//        }catch (Exception e){
-//            readUserString(length,choices);
-//        }
-//    }
 
     public Integer readUserInteger(Integer max,Integer divisible){
         Integer iInput=0;
@@ -86,7 +67,7 @@ public class UserClass {
         return iInput;
     }
 
-    public List<Character> untangleResponse(String input){//TODO: check for invalid input with try catch==> I think that this is done
+    public List<Character> untangleResponse(String input){
         List<Character> response=new ArrayList<>();
         for (char x:input.toCharArray()) {
             response.add(x);

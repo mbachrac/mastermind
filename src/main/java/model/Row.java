@@ -15,9 +15,6 @@ public class Row {
         for (int i=0; i<guess.size();i++) {
             pegs.add(guess.get(i));
         }
-//        for (char peg:feedback) {
-//            pegs.add(peg);
-//        }
         pegs.addAll(feedback);
     }
 

@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,9 +19,6 @@ public class Board {
     @Setter
     private Integer size=0;
 
-    //public void setKey(String code){
-        //key=code.toCharArray();
-    //}
     public void setKey(List<Character> code){
         key=code;
         System.out.println(key);
@@ -38,6 +34,7 @@ public class Board {
     }
     public void clearBoard(){
         gameBoard.clear();
+        size=0;
     }
 
     //getters and setters to its state
